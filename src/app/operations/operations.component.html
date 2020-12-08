@@ -1,0 +1,49 @@
+<div *ngIf="isShowProgress">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<div class="jumbotron">
+    <h2>Transaction</h2>
+    <div class="jumbotron-body">
+        
+        <form #data="ngForm" (ngSubmit)="deposit(data)">
+            <div class="form-group">
+                
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <label for="lis">Account(s)</label>
+                        <ul id="lis">
+                            <li *ngFor="let acc of accounts" >  <label for="{{acc.number}}"> <input  type="radio"  name="account" ngModel value="{{acc.number}}" id="{{acc.number}}"> {{acc.number}} </label> </li> 
+                             
+                        </ul>
+                    </div>
+                      <div class="col-md-3">
+                        <label for="type">Type</label>
+                        <select class="form-control" name="type" id="type" ngModel required>
+                            <option selected value="0">Deposit</option>
+                            <option value="1">Withdraw</option>
+                        </select>
+                    </div>
+                     <div class="col-md-3">
+                        <label for="amount">Amount</label>
+                        <input type="number" placeholder="10.00" class="form-control" id="amount" ngModel name="amount" >
+                    </div>
+
+                    
+
+                    <div class="col-md-3">
+                        <label for="btn">...</label>
+                        <input type="submit" class="form-control btn btn-sm btn-info" value="Submit">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+    
+    <hr>
+
+</div>
+

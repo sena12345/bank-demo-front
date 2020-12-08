@@ -1,0 +1,29 @@
+<div *ngIf="isShowProgress">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<table class="table">
+    <thead>
+        <th>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>#Accounts</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of clients">
+            <td>{{row.id}}</td>
+            <td>{{row.firstName}}</td>
+            <td>{{row.lastName}}</td>
+            <td>{{row.contact}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.bankAccount.length}}</td>
+            <td>
+                <a href="/transaction/{{row.id}}">Transact | </a>
+                <a href="/create/{{row.id}}">Create / Transfer </a>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

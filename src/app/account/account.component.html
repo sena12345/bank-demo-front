@@ -1,0 +1,24 @@
+
+<div *ngIf="isShowProgress">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<table class="table">
+    <thead>
+        <th>No.</th>
+        <th>Status</th>
+        <th>Created At</th>
+        <th>Balance &#162;</th>
+        <th>Actions</th>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let row of accounts">
+            <td>{{row.number}}</td>
+            <td>{{row.status}}</td>
+            <td>{{row.createdAt}}</td>
+            <td>{{row.balance}}</td>
+            <td><button class="btn btn-sm btn-warning" (click)="closeAccount(row)" >Change status</button></td>
+        </tr>
+    </tbody>
+
+</table>

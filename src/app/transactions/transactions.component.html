@@ -1,0 +1,61 @@
+
+<div *ngIf="isShowProgress">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="jumbotron">
+   <form #data="ngForm" (ngSubmit)="sort(data)"> 
+        <div class="form-group">
+              <div class="form-row">
+
+                <div class="col-md-4">
+                    <label for="type">Type</label>
+                    <select class="form-control" name="type" id="type" ngModel >
+                        <option selected value="0">WITHDRAWAL</option>
+                        <option value="1">DEPOSIT</option>
+                        <option value="2">TRANSFER</option>
+                    </select>
+                </div>
+
+                 <div class="col-md-4">
+                    <label for="from">From</label>
+                    <input class="form-control" type="date" id="from" name="from" ngModel >
+                </div>
+
+                
+                 <div class="col-md-4">
+                    <label for="to">To</label>
+                    <input class="form-control" type="date" id="to" name="to" ngModel >
+                </div>
+                 <div class="col-md-4">
+                    <label for="btn">...</label>
+                    <input id="btn" type="submit" value="Submit" class="form-control btn btn-sm btn-info">
+                </div>
+
+            </div>
+        </div>
+   </form>
+
+
+</div>
+
+<table class="table">
+    <thead>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Done At</th>
+        <th>ID</th>
+        
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let row of transactions">
+            <td>{{row.type}}</td>
+            <td>{{row.amount}}</td>
+            <td>{{row.doneAt}}</td>
+            <td>{{row.id}}</td>
+        
+        </tr>
+    </tbody>
+
+</table>
